@@ -1,0 +1,32 @@
+name: Deploy to AWS
+env:
+  AWS_REGION_NAME: "us-west-2"
+  PACKAGE_NAME: "MLOps_${{github.sha}}.zip"
+  S3_BUCKET_NAME: "mlopswgithub"
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    name: Deploy to AWS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Clone our repo
+        uses: actions/checkout@v2
+        env:
+          repo_token: {{secrets.GITHUB_TOKEN}}
+
+      - name: Create ZIP deployment
+        run:  zip -r ${{env.PACKAGE_NAME}} ./ -x *.git*
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ${{env.AWS_REGION_NAME}}
+
+      - name: Move deployment package to S3 bucket
+        run: aws s3 cp ${{env.PACKAGE_NAME}} s3://${{env.S3_BUCKET_NAME}}/
