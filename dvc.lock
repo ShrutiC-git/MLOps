@@ -1,0 +1,43 @@
+get_data:
+  cmd: python get_data.py
+  deps:
+  - path: get_data.py
+    md5: 4c94d8c93927d9f4f56f99fb943236e8
+    size: 166
+  outs:
+  - path: haberman.csv
+    md5: 867c77f6a99090e1af91510211f8b68c
+    size: 3103
+process_data:
+  cmd: python process_data.py
+  deps:
+  - path: haberman.csv
+    md5: 867c77f6a99090e1af91510211f8b68c
+    size: 3103
+  - path: process_data.py
+    md5: 60333117072711b3a152aaa42565bbac
+    size: 379
+  outs:
+  - path: haberman_processed.csv
+    md5: f4187b5e2d213d442bde7b3274cb9f68
+    size: 4545
+train_data:
+  cmd: python train_data.py
+  deps:
+  - path: haberman_processed.csv
+    md5: f4187b5e2d213d442bde7b3274cb9f68
+    size: 4545
+  - path: train_data.py
+    md5: 21087fe639957fb13ec91fee03f94e49
+    size: 1093
+  params:
+    params.yaml:
+      cv: 5
+      solver: liblinear
+  outs:
+  - path: final_model.sav
+    md5: 0923ea6bf844d92d94afd63eda9aff19
+    size: 329
+  - path: metrics.json
+    md5: 503094384d8da9040573b1f8dc8c38bc
+    size: 88
