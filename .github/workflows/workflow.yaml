@@ -18,5 +18,5 @@ jobs:
           dvc repro
           git fetch --prune
           dvc metrics diff --show-md master > report.md
-          dvc params.diff --show-md master > report.md
+          dvc params diff --show-md master > report.md
           cml-send-comment report.md
