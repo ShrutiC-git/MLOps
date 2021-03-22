@@ -22,7 +22,7 @@ X = df.to_numpy()
 X = Normalizer().fit_transform(X)
 
 #clf = LogisticRegression(solver=yaml.safe_load(open('params.yaml'))['solver'])
-clf = LinearDiscriminantAnalysis()
+clf = LinearDiscriminantAnalysis
 y_pred = cross_val_predict(clf, X, y, cv = yaml.safe_load(open('params.yaml'))['cv'])
 
 acc = np.mean(y_pred==y)
