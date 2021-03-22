@@ -11,6 +11,7 @@ from sklearn.preprocessing import Normalizer
 import yaml
 import pickle
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 df = pd.read_csv('haberman_processed.csv', index_col=0)
 
@@ -21,7 +22,7 @@ X = df.to_numpy()
 X = Normalizer().fit_transform(X)
 
 #clf = LogisticRegression(solver=yaml.safe_load(open('params.yaml'))['solver'])
-clf = MultinomialNB()
+clf = LinearDiscriminantAnalysis()
 y_pred = cross_val_predict(clf, X, y, cv = yaml.safe_load(open('params.yaml'))['cv'])
 
 acc = np.mean(y_pred==y)
