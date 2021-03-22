@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Git Clone our repo
         uses: actions/checkout@v2
-        env:
-          repo_token: {{secrets.GITHUB_TOKEN}}
 
       - name: Create ZIP deployment
         run:  zip -r ${{env.PACKAGE_NAME}} ./ -x *.git*
