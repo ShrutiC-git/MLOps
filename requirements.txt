@@ -2,4 +2,3 @@ sklearn
 wget
 pyyaml
 pandas
-pickle
