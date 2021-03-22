@@ -9,9 +9,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to AWS
-    runs-on: ubuntu-latest
-
+    runs-on: [ubuntu-latest]
     steps:
       - name: Git Clone our repo
         uses: actions/checkout@v2
