@@ -5,4 +5,3 @@ import wget
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/haberman.csv"
 
 file = wget.download(url)
-print(file)
