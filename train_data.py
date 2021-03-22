@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 import json
 from sklearn.preprocessing import Normalizer
 import yaml
+import pickle
 
 df = pd.read_csv('haberman_processed.csv', index_col=0)
 
@@ -27,4 +28,7 @@ specificity = tn / (tn+fp)
 sensitivity = tp / (tp + fn)
 
 with open("metrics.json", 'w') as outfile:
-        json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)
+        json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)4
+
+model_name = "final_model.sav"
+pickle.dump(clf, open(model_name, 'wb'))
