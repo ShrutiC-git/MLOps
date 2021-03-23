@@ -19,6 +19,7 @@ X = df.to_numpy()
 
 X = Normalizer().fit_transform(X)
 
+#Using a Logistic Regression in production
 clf = LogisticRegression(solver=yaml.safe_load(open('params.yaml'))['solver'])
 y_pred = cross_val_predict(clf, X, y, cv = yaml.safe_load(open('params.yaml'))['cv'])
 
