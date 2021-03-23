@@ -8,4 +8,4 @@ df = pd.read_csv(filename, header=None, names=columns)
 labelEncoder = preprocessing.LabelEncoder()
 #Encode the class column into 0 and 1
 df['class'] = labelEncoder.fit_transform(df['class'])
-df.to_csv("haberman_processed.csv")
+df.to_csv("habermanprocessed.csv")
