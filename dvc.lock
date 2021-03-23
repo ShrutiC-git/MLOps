@@ -28,16 +28,16 @@ train_data:
     md5: f4187b5e2d213d442bde7b3274cb9f68
     size: 4545
   - path: train_data.py
-    md5: 21087fe639957fb13ec91fee03f94e49
-    size: 1093
+    md5: c2d7002d3a83e7767d78612ef680c068
+    size: 1271
   params:
     params.yaml:
-      cv: 5
+      cv: 7
       solver: liblinear
   outs:
   - path: final_model.sav
-    md5: 0923ea6bf844d92d94afd63eda9aff19
-    size: 329
+    md5: 9dea20b3b6ef1af445348ada4b6ba474
+    size: 200
   - path: metrics.json
-    md5: 503094384d8da9040573b1f8dc8c38bc
-    size: 88
+    md5: 475688c4fd09bdff750bacfcb2aa1378
+    size: 102
