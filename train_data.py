@@ -22,6 +22,7 @@ X = Normalizer().fit_transform(X)
 clf = LogisticRegression(solver=yaml.safe_load(open('params.yaml'))['solver'])
 y_pred = cross_val_predict(clf, X, y, cv = yaml.safe_load(open('params.yaml'))['cv'])
 
+# Metrics for comparing performance bw models
 acc = np.mean(y_pred==y)
 tn, fp, fn, tp = confusion_matrix(y, y_pred).ravel()
 specificity = tn / (tn+fp)
