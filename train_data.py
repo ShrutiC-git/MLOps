@@ -32,5 +32,6 @@ sensitivity = tp / (tp + fn)
 with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)
 
+# Dumping the model into a serialized file
 model_name = "final_model.sav"
 pickle.dump(clf, open(model_name, 'wb'))
