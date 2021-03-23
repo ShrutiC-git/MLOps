@@ -33,11 +33,11 @@ train_data:
   params:
     params.yaml:
       cv: 5
-      solver: sag
+      solver: liblinear
   outs:
   - path: final_model.sav
-    md5: 3df4bf14536a5d4867672dbde9e26088
-    size: 323
+    md5: 0923ea6bf844d92d94afd63eda9aff19
+    size: 329
   - path: metrics.json
-    md5: 8923e1773e2e9b130a9e962dbe3fc80d
-    size: 72
+    md5: 503094384d8da9040573b1f8dc8c38bc
+    size: 88
