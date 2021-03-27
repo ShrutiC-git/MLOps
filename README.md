@@ -1,5 +1,5 @@
 # MLOps using GitHub
-#### Manage ML modelling with GitHub
+#### Manage ML modeling with GitHub
 
 Binary Classfication Pipeline which uses Haberman's Survival Dataset (https://archive.ics.uci.edu/ml/datasets/Haberman's+Survival)
 
